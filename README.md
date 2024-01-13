@@ -1,0 +1,20 @@
+## Overview 
+Twitter started out with a MySQL backend. In this project, I tested the speed of posting 1,000,000 tweets and the rate at which timelines (10 most recent tweets of randomly selected users' followers)
+are retrieved using a relational database. The latter simulates a user opening the Twitter app and refreshing their timeline to see new posts. I created a driver program that carries out the performance testing, and an API which implements the Twitter-related functionality (post/retrieve timeline). 
+The implementation of the API is abstracted from the driver program such that the functionality could be reimplemented with Redis (see Twitter_as_KeyValue), a key-value store database. 
+
+
+
+## Setup and Configuration
+- Ensure that MySQL is installed and running.
+- Import the twitter_rdb_dump.sql file into MySQL to set up the database schema.
+- Install required Python packages: yaml, pandas, mysql-connector-python, tqdm.
+- Configure database credentials in config/settings.yaml (not provided in the files).
+- Load the data in follows.csv into the FOLLOWS table using MySQLWorkbench.
+  
+## Usage
+- Use TwitterDriverMain.py to run performance tests or interact with the Twitter API.
+  - The other Python files are modules that support TwitterDriverMain.py.
+
+## Notes
+- 
