@@ -1,8 +1,7 @@
 ## Overview 
-Twitter started out with a MySQL backend. In this project, I tested the speed of posting 1,000,000 tweets and the rate at which timelines (10 most recent tweets of randomly selected users' followers)
+Twitter started out with a MySQL backend. In this project, I tested the speed of posting 1,000,000 tweets and the rate at which timelines
 are retrieved using a relational database. The latter simulates a user opening the Twitter app and refreshing their timeline to see new posts. I created a driver program that carries out the performance testing, and an API which implements the Twitter-related functionality (post/retrieve timeline). 
-The implementation of the API is abstracted from the driver program such that the functionality could be reimplemented with Redis (see Twitter_as_KeyValue), a key-value store database. 
-
+The implementation of the API is abstracted from the driver program such that the performance testing can be redone (without changing the driver code) with Redis, a key-value store database. See Twitter_as_KeyValue for comparison.
 
 
 ## Setup and Configuration
@@ -13,8 +12,10 @@ The implementation of the API is abstracted from the driver program such that th
 - Load the data in follows.csv into the FOLLOWS table using MySQLWorkbench.
   
 ## Usage
-- Use TwitterDriverMain.py to run performance tests or interact with the Twitter API.
-  - The other Python files are modules that support TwitterDriverMain.py.
-
-## Notes
-- 
+- Run TwitterDriverMain.py to start performance tests
+  - Post tweets will output the rate at which 1,000,000 tweets from tweets.csv are uploaded to the database.
+  - Get home timeline will repeatedely pick a random user and return that user's home timeline (10 most recent tweets posted by that user's followers), and output the API calls/sec.
+ 
+## Results
+- postTweet: 1454.2 API calls/sec
+- getHomeTimeline: 527 API calls/sec
