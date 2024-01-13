@@ -48,7 +48,7 @@ if __name__ == "__main__":
         timelines_retrieved = 0
 
         # Run timeline retrieval for 1 minute
-        while((time.time() - start_time) < 5):
+        while((time.time() - start_time) < 60):
             # Select random user ID
             user_id = randint(0, max_users)
             print("Retrieving timeline for user_id: " + str(user_id) + "\n")
@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
 
     # Execute post all tweets function
-    # postAllTweets()
+    postAllTweets()
 
     # Repeatedly pick a random user and return user's home timeline (10 most recent tweets of their followers)
     # for 60 seconds
